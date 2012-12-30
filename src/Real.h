@@ -1,5 +1,7 @@
 #ifndef FL_REAL_H
 #define FL_REAL_H
+
+#include "FuzzyLib.h"
 #include <float.h>
 #include <math.h>
 #include <limits>
@@ -11,7 +13,7 @@ static const Real NotANumber = std::numeric_limits<Real>::quiet_NaN();
 
 static bool isNan(const Real& num) { return num != num; }
 
-struct Point
+struct FL_EXPORT Point
 {
 	inline Point(const Real x, const Real y) { this->x = x; this->y = y; }
 	inline Point(const Point& o) { *this = o; }

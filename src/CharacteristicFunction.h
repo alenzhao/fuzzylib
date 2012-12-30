@@ -1,9 +1,10 @@
 #ifndef FL_CHARACTERISTIC_FUNCTION_H
 #define FL_CHARACTERISTIC_FUNCTION_H
 
+#include "FuzzyLib.h"
 #include "Real.h"
 
-class CharacteristicFunction
+class FL_EXPORT CharacteristicFunction
 {
 public:
 	CharacteristicFunction();

@@ -1,12 +1,13 @@
 #ifndef FL_TRIANGULAR_CHARACTERISTIC_FUNCTION_H
 #define FL_TRIANGULAR_CHARACTERISTIC_FUNCTION_H
 
+#include "FuzzyLib.h"
 #include "CharacteristicFunction.h"
 #include "LinearCharacteristicFunction.h"
 #include "Range.h"
 #include "Real.h"
 
-class TriangularCharacteristicFunction :
+class FL_EXPORT TriangularCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:

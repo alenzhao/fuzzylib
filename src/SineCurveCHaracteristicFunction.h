@@ -1,8 +1,10 @@
 #ifndef FL_SINE_CURVE_CHARACTERISTIC_FUNCTION_H
 #define FL_SINE_CURVE_CHARACTERISTIC_FUNCTION_H
 
+#include "FuzzyLib.h"
 #include "CharacteristicFunction.h"
-class SineCurveCHaracteristicFunction :
+
+class FL_EXPORT SineCurveCHaracteristicFunction :
 	public CharacteristicFunction
 {
 public:
@@ -16,7 +18,7 @@ private:
 	Real m_scaleX;
 };
 
-class SinusCharacteristicFunction :
+class FL_EXPORT SinusCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:
@@ -25,7 +27,7 @@ public:
 };
 
 
-class CosinusCharacteristicFunction :
+class FL_EXPORT CosinusCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:

@@ -48,11 +48,13 @@ ResultPair LinguisticVariable<T>::value(const T& e)
         const Real mmbrVal = (*m_membF)();
         ListofLinguisticValues::iterator it = m_values.begin();
         
-		res.value = NotANumber;
-        while(it != m_values.end() && isNan(res.value))
+		res.value	= NotANumber;
+        res.text	= "undefined";
+		while(it != m_values.end() && isNan(res.value))
         {
             res.value = it->intensity(mmbrVal);
-            res.text = it->name();
+			if(!isNan(res.value))
+				res.text = it->name();
             ++it;
         }
         for(;it != m_values.end(); ++it)

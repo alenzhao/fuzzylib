@@ -1,11 +1,12 @@
 #ifndef FL_TRAPESOID_CHARACTERISTIC_FUNCTION
 #define FL_TRAPESOID_CHARACTERISTIC_FUNCTION
 
+#include "FuzzyLib.h"
 #include "CharacteristicFunction.h"
 #include "Real.h"
 #include "LinearCharacteristicFunction.h"
 
-class TrapesoidCharacteristicFunction :
+class FL_EXPORT TrapesoidCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:

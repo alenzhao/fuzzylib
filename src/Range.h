@@ -1,10 +1,11 @@
 #ifndef FL_RANGE_H
 #define FL_RANGE_H
 
+#include "FuzzyLib.h"
 #include "Real.h"
 #include <stdlib.h>
 
-struct Range
+struct FL_EXPORT Range
 {
 	Range(Real a = NotANumber, Real b = NotANumber) { this->a = a; this->b = b; }
 	Range(const Range& o ) { *this = o; }

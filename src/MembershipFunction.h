@@ -1,6 +1,7 @@
 #ifndef FL_MEMBERSHIP_FUNCTION_H
 #define FL_MEMBERSHIP_FUNCTION_H
 
+#include "FuzzyLib.h"
 #include "Real.h"
 
 #define DECLARE_FUNCTIONAL inline Real operator()(const T arg) { setArg(arg);	return operator()(); } virtual Real operator()();
@@ -15,12 +16,20 @@
 #define END_FUNCTIONAL_IMPLEMENTATION END_FUNCTIONAL_IMPLEMENTATION_A
 #define END_FUNCTIONAL_IMPLEMENTATION_A }
 
+/*
+	NOTE ABOUT EXPORTING SYMBOLS ON WINDOWS:
+	The MembershipFunction class is template, so it's implementation is fully
+	in header file, so we do not need to export it's functions
+*/
+
 template<typename T>
 class MembershipFunction
 {
 public:
 	typedef MembershipFunction<T> ArgumentProvider;
 	typedef T Type;
+	MembershipFunction(){};
+	virtual ~MembershipFunction(){};
     void setArg(const T arg);
 	
 	virtual Real operator()() = 0;

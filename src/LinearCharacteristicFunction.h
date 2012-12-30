@@ -1,11 +1,12 @@
 #ifndef FL_LINEAR_CHARACTERISTIC_FUNCTION_H
 #define FL_LINEAR_CHARACTERISTIC_FUNCTION_H
 
+#include "FuzzyLib.h"
 #include "CharacteristicFunction.h"
 #include "Real.h"
 #include "Range.h"
 
-class LinearCharacteristicFunction :
+class FL_EXPORT LinearCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:
