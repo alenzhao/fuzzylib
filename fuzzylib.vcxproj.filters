@@ -33,13 +33,13 @@
     <ClCompile Include="src\ShoulderCharacteristicFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SineCurveCHaracteristicFunction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\TrapesoidCharacteristicFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TriangularCharacteristicFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SineCurveCharacteristicFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,9 +74,6 @@
     <ClInclude Include="src\ShoulderCharacteristicFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SineCurveCHaracteristicFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\TrapesoidCharacteristicFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -84,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\FuzzyLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SineCurveCharacteristicFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

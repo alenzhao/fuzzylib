@@ -4,12 +4,12 @@
 #include "FuzzyLib.h"
 #include "CharacteristicFunction.h"
 
-class FL_EXPORT SineCurveCHaracteristicFunction :
+class FL_EXPORT SineCurveCharacteristicFunction :
 	public CharacteristicFunction
 {
 public:
-	SineCurveCHaracteristicFunction(Real dy = 0, Real dx = 0, Real yScale = 1, Real xScale = 1);
-	virtual ~SineCurveCHaracteristicFunction();
+	SineCurveCharacteristicFunction(Real dy = 0, Real dx = 0, Real yScale = 1, Real xScale = 1);
+	virtual ~SineCurveCharacteristicFunction();
 	virtual Real operator () (const Real val) { return m_dy + m_scaleY * sin(m_dx + m_scaleX * val); }
 private:
 	Real m_dy;

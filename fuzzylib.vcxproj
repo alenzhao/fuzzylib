@@ -129,7 +129,7 @@
     <ClCompile Include="src\Range.cpp" />
     <ClCompile Include="src\Real.cpp" />
     <ClCompile Include="src\ShoulderCharacteristicFunction.cpp" />
-    <ClCompile Include="src\SineCurveCHaracteristicFunction.cpp" />
+    <ClCompile Include="src\SineCurveCharacteristicFunction.cpp" />
     <ClCompile Include="src\TrapesoidCharacteristicFunction.cpp" />
     <ClCompile Include="src\TriangularCharacteristicFunction.cpp" />
   </ItemGroup>
@@ -145,7 +145,7 @@
     <ClInclude Include="src\Real.h" />
     <ClInclude Include="src\ResultPair.h" />
     <ClInclude Include="src\ShoulderCharacteristicFunction.h" />
-    <ClInclude Include="src\SineCurveCHaracteristicFunction.h" />
+    <ClInclude Include="src\SineCurveCharacteristicFunction.h" />
     <ClInclude Include="src\TrapesoidCharacteristicFunction.h" />
     <ClInclude Include="src\TriangularCharacteristicFunction.h" />
   </ItemGroup>
