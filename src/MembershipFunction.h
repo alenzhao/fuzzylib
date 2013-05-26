@@ -55,4 +55,7 @@ T& MembershipFunction<T>::arg()
     return m_arg;
 }
 
+template<typename T>
+struct MembershipFunctionPtr: public std::shared_ptr<MembershipFunction<T> > {};
+
 #endif // FL_MEMBERSHIP_FUNCTION_H

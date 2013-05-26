@@ -126,6 +126,8 @@
     <ClCompile Include="src\CharacteristicFunction.cpp" />
     <ClCompile Include="src\LinearCharacteristicFunction.cpp" />
     <ClCompile Include="src\LinguisticValue.cpp" />
+    <ClCompile Include="src\PolynomialCharacteristicFunction.cpp" />
+    <ClCompile Include="src\PowerCharacteristicFunction.cpp" />
     <ClCompile Include="src\Range.cpp" />
     <ClCompile Include="src\Real.cpp" />
     <ClCompile Include="src\ShoulderCharacteristicFunction.cpp" />
@@ -136,11 +138,14 @@
   <ItemGroup>
     <ClInclude Include="src\CharacteristicFunction.h" />
     <ClInclude Include="src\FuzzyLib.h" />
+    <ClInclude Include="src\FuzzySet.h" />
     <ClInclude Include="src\LinearCharacteristicFunction.h" />
     <ClInclude Include="src\LinguisticValue.h" />
     <ClInclude Include="src\LinguisticVariable.h" />
     <ClInclude Include="src\LinguisticVariable_impl.h" />
     <ClInclude Include="src\MembershipFunction.h" />
+    <ClInclude Include="src\PolynomialCharacteristicFunction.h" />
+    <ClInclude Include="src\PowerCharacteristicFunction.h" />
     <ClInclude Include="src\Range.h" />
     <ClInclude Include="src\Real.h" />
     <ClInclude Include="src\ResultPair.h" />

@@ -39,25 +39,25 @@ void LinguisticVariable<T>::removeValue(const std::string v)
 }
 
 template<typename T>
-ResultPair LinguisticVariable<T>::value(const T& e)
+ResultPair LinguisticVariable<T>::value(const T& e) const
 {
     ResultPair res;
     if(m_membF != 0)
     {
         m_membF->setArg(e);
         const Real mmbrVal = (*m_membF)();
-        ListofLinguisticValues::iterator it = m_values.begin();
+        ListofLinguisticValues::const_iterator it = m_values.cbegin();
         
 		res.value	= NotANumber;
         res.text	= "undefined";
-		while(it != m_values.end() && isNan(res.value))
+		while(it != m_values.cend() && isNan(res.value))
         {
             res.value = it->intensity(mmbrVal);
 			if(!isNan(res.value))
 				res.text = it->name();
             ++it;
         }
-        for(;it != m_values.end(); ++it)
+        for(;it != m_values.cend(); ++it)
         {
             const Real tmpI = it->intensity(mmbrVal);
             if(!isNan(tmpI) && tmpI > res.value)

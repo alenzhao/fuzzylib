@@ -23,7 +23,7 @@ public:
     void removeValue(const std::string v);
     inline void removeValue(const LinguisticValue& v) { removeValue(v.name()); }
     inline const ListofLinguisticValues values() const { return m_values; }
-    ResultPair value(const T&);
+    ResultPair value(const T&) const;
 private:
 	MembershipFunction<T>* m_membF;
 	ListofLinguisticValues m_values;

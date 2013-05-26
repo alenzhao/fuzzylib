@@ -3,10 +3,12 @@
 
 #include "FuzzyLib.h"
 #include <float.h>
+#include <vector>
 #include <math.h>
 #include <limits>
 
 typedef double Real;
+typedef std::vector<Real> Vector;
 
 static const Real RealEpsilon = DBL_EPSILON;
 static const Real NotANumber = std::numeric_limits<Real>::quiet_NaN();
