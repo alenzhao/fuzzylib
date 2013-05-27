@@ -1,51 +1,92 @@
 #ifndef FL_FUZZY_SET_H
 #define FL_FUZZY_SET_H
 
+#include <list>
+#include <algorithm>
 #include "MembershipFunction.h"
-#include <set>
 
-template<T>
-class FuzzySet:
+template<typename T>
+
+class FuzzySet
 {
 public:
-	FuzzySet(std::set<T> members = std::set<T>(), MembershipFunctionPtr<T> memnberShipFunction = MembershipFunctionPtr());
-	~FuzzySet();
-	void add(const T& member);
-	void remove(const T& member);
-	bool contains(const T& member) const;
-	double fuzzyContains(const T& member) const;
+
+	typedef typename T ElementType;
+	typedef std::list<ElementType> SetOfElements;
+	typedef std::shared_ptr<MembershipFunction<T> > MembershipFunctionPtr;
+
+	FuzzySet(	SetOfElements			members = SetOfElements(),
+				MembershipFunction<T>*	membershipFunction = NULL);
+	FuzzySet(			SetOfElements			members,
+				const	MembershipFunctionPtr	membershipFunction);
+	FuzzySet(const FuzzySet& src) { *this = src; }
+	~FuzzySet() {}
+	FuzzySet<T>& operator = (const FuzzySet& src);
+	void add(const ElementType& member);
+	void remove(const ElementType& member);
+	bool contains(const ElementType& member) const;
+	Real fuzzyContains(const ElementType& member) const;
+
 private:
-	MembershipFunctionPtr<T> m_membershipFuncPtr;
-	std::set<T> m_members;
+	MembershipFunctionPtr m_membershipFuncPtr;
+	SetOfElements m_members;
 };
 
-template<T>
-double FuzzySet<>::fuzzyContains( const T& member ) const
+template<typename T>
+FuzzySet<T>::FuzzySet(	SetOfElements members,
+						MembershipFunction<T>* membershipFunction)
+	: m_members(members)
 {
-	std::set<T>::const_iterator mmbr = m_members.find(member);
-	if(mmbr == m_members.end())
+	m_membershipFuncPtr = std::shared_ptr<MembershipFunction<T> >(membershipFunction);
+}
+
+template<typename T>
+FuzzySet<T>::FuzzySet(	SetOfElements members,
+						const MembershipFunctionPtr membershipFunction)
+	: m_members(members)
+{
+	m_membershipFuncPtr = membershipFunction;
+}
+
+template<typename T>
+FuzzySet<T>& FuzzySet<T>::operator=( const FuzzySet<T>& src )
+{
+	m_members = src.m_members;
+	m_membershipFuncPtr = src.m_membershipFuncPtr;
+	return *this;
+}
+
+template<typename T>
+Real FuzzySet<T>::fuzzyContains( const T& member ) const
+{
+	SetOfElements::const_iterator pos = std::find(m_members.cbegin(), m_members.cend(), member);
+	if(pos == m_members.cend())
 		return 0;
 	if(!m_membershipFuncPtr)
 		return 0;
-	return (*m_membershipFuncPtr)(member);
+	return (*m_membershipFuncPtr)(*pos);
 }
 
-template<T>
-bool FuzzySet<>::contains( const T& member ) const
+template<typename T>
+bool FuzzySet<T>::contains( const T& member ) const
 {
-	m_members.find(member) != m_members.cend();
+	return std::find(m_members.cbegin(), m_members.cend(), member) != m_members.cend();
 }
 
-template<T>
-void FuzzySet<>::remove( const T& member )
+template<typename T>
+void FuzzySet<T>::remove( const T& member )
 {
-	m_members.erase(member);
+	SetOfElements::iterator pos = std::find(m_members.begin(), m_members.end(), member);
+	if(pos != m_members.end())
+		m_members.erase(pos);
 }
 
-template<T>
+template<typename T>
 void FuzzySet<T>::add( const T& member )
 {
-	m_members.insert(member);
+	SetOfElements::iterator pos = std::find(m_members.begin(), m_members.end(), member);
+	if(pos == m_members.end())
+		m_members.push_back(member);
 }
 
 

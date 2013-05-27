@@ -8,6 +8,7 @@ class FL_EXPORT PolynomialCharacteristicFunction:
 	public CharacteristicFunction
 {
 public:
+	PolynomialCharacteristicFunction(const Real a0, const Real a1, const Real a2); // a0 + a1 * x + a2 * x^2
 	PolynomialCharacteristicFunction(Vector coeficents);
 	virtual ~PolynomialCharacteristicFunction();
 	virtual Real operator () (Real val);

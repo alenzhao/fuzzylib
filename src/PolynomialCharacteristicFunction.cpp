@@ -1,6 +1,14 @@
 #include "PolynomialCharacteristicFunction.h"
 
 
+PolynomialCharacteristicFunction::PolynomialCharacteristicFunction( const Real a0, const Real a1, const Real a2 )
+{
+	m_coeficents.resize(3);
+	m_coeficents[0] = a0;
+	m_coeficents[1] = a1;
+	m_coeficents[2] = a2;
+}
+
 PolynomialCharacteristicFunction::PolynomialCharacteristicFunction( Vector coeficents )
 	: m_coeficents(coeficents)
 {

@@ -6,9 +6,24 @@
 #include "MembershipFunction.h"
 
 template<typename T>
-LinguisticVariable<T>::LinguisticVariable(MembershipFunction<T>* f)
+LinguisticVariable<T>::LinguisticVariable(MembershipFunction<T>*	f)
 	: m_membF(f)
 {
+}
+
+template<typename T>
+LinguisticVariable<T>::LinguisticVariable(const MembershipFunctionPtr	f)
+	: m_membF(f)
+{
+}
+
+
+template<typename T>
+LinguisticVariable<T>& LinguisticVariable<T>::operator=( const LinguisticVariable<T>& src )
+{
+	m_values = src.m_values;
+	m_membF = src.m_membF;
+	return *this;
 }
 
 

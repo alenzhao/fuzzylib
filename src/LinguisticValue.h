@@ -5,6 +5,7 @@
 #include "Real.h"
 #include <list>
 #include <string>
+#include <memory>
 
 class CharacteristicFunction;
 

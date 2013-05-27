@@ -3,6 +3,7 @@
 
 #include "FuzzyLib.h"
 #include "Real.h"
+#include <memory>
 
 #define DECLARE_FUNCTIONAL inline Real operator()(const T arg) { setArg(arg);	return operator()(); } virtual Real operator()();
 #define DECLARE_INLINE_FUNCTIONAL inline Real operator()(const T arg) { setArg(arg);	return operator()(); } inline virtual Real operator()()
@@ -28,34 +29,33 @@ class MembershipFunction
 public:
 	typedef MembershipFunction<T> ArgumentProvider;
 	typedef T Type;
+
 	MembershipFunction(){};
 	virtual ~MembershipFunction(){};
-    void setArg(const T arg);
+    void setArg(const T arg) const;
 	
-	virtual Real operator()() = 0;
-    T& arg();
-	inline Real operator()(const T arg)
+	virtual Real operator()() const = 0;
+    const T& arg() const;
+	inline Real operator()(const T arg) const
 	{
 		setArg(arg);
 		return operator()();
 	}
+
 protected:
-    T m_arg;
+    mutable T m_arg;
 };
 
 template<typename T>
-void MembershipFunction<T>::setArg(const T arg)
+void MembershipFunction<T>::setArg(const T arg) const
 {
     m_arg = arg;
 }
 
 template<typename T>
-T& MembershipFunction<T>::arg()
+const T& MembershipFunction<T>::arg() const
 {
     return m_arg;
 }
-
-template<typename T>
-struct MembershipFunctionPtr: public std::shared_ptr<MembershipFunction<T> > {};
 
 #endif // FL_MEMBERSHIP_FUNCTION_H

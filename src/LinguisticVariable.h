@@ -18,15 +18,20 @@ template<typename T>
 class LinguisticVariable
 {
 public:
+	typedef std::shared_ptr<MembershipFunction<T> > MembershipFunctionPtr;
 	explicit LinguisticVariable(MembershipFunction<T>* f);
-    void addValue(const LinguisticValue v, const bool replaveIfNeed = false);
+	explicit LinguisticVariable(const MembershipFunctionPtr	f = MembershipFunctionPtr());
+	LinguisticVariable(const LinguisticVariable& src) { *this = src; }
+
+	LinguisticVariable& operator = (const LinguisticVariable& src);
+    void addValue(const LinguisticValue v, const bool replaceIfNeed = false);
     void removeValue(const std::string v);
     inline void removeValue(const LinguisticValue& v) { removeValue(v.name()); }
     inline const ListofLinguisticValues values() const { return m_values; }
     ResultPair value(const T&) const;
 private:
-	MembershipFunction<T>* m_membF;
-	ListofLinguisticValues m_values;
+	MembershipFunctionPtr	m_membF; 
+	ListofLinguisticValues	m_values;
 };
 
 #include "LinguisticVariable_impl.h"
