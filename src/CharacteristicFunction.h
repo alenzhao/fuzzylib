@@ -7,9 +7,10 @@
 class FL_EXPORT CharacteristicFunction
 {
 public:
+	typedef std::shared_ptr<CharacteristicFunction> CharacteristicFunctionPtr;
 	CharacteristicFunction();
 	~CharacteristicFunction();
-	virtual Real operator()(const Real val) = 0;
+	virtual Real operator()(const Real val) { return NotANumber; }
 };
 
 #endif // FL_CHARACTERISTIC_FUNCTION_H

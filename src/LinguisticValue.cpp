@@ -1,8 +1,13 @@
 #include "LinguisticValue.h"
 #include "CharacteristicFunction.h"
 
-
 LinguisticValue::LinguisticValue(std::string name, CharacteristicFunction* f/*= 0*/)
+	: m_name(name)
+{
+	m_charF.reset(f);
+}
+
+LinguisticValue::LinguisticValue(std::string name, CharacteristicFunction::CharacteristicFunctionPtr f/*= 0*/)
 	: m_name(name)
 	, m_charF(f)
 {

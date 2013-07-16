@@ -3,6 +3,7 @@
 
 #include <list>
 #include <algorithm>
+#include "FuzzyLib.h"
 #include "MembershipFunction.h"
 
 template<typename T>

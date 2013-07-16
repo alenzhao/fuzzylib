@@ -10,10 +10,12 @@ class FL_EXPORT PowerCharacteristicFunction :
 {
 public:
 	PowerCharacteristicFunction(Real exponenta);
+	PowerCharacteristicFunction(CharacteristicFunction::CharacteristicFunctionPtr arg, Real exponenta);
 	virtual ~PowerCharacteristicFunction();
 	virtual Real operator () (const Real val);
 private:
 	Real m_exp;
+	CharacteristicFunction::CharacteristicFunctionPtr m_arg;
 };
 
 #endif // FL_POWER_CHARACTERISTIC_FUNCTION_H
